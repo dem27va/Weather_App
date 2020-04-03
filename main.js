@@ -14,11 +14,14 @@ function weatherInfo() {
 }
 
 function showWeather(dat) {
-	let celcius = Math.round(parseFloat(dat.main.temp)-273.15);
-		
-	document.getElementById('description').innerHTML = dat.weather[0].description[0].toUpperCase() + dat.weather[0].description.substring(1);
-	document.getElementById('temp').innerHTML = celcius + '&deg;C';
-	document.getElementById('location').innerHTML = `${dat.name}, ${dat.sys.country}`;
+	try {
+		let celcius = Math.round(parseFloat(dat.main.temp)-273.15);
+		document.getElementById('description').innerHTML = dat.weather[0].description[0].toUpperCase() + dat.weather[0].description.substring(1);
+		document.getElementById('temp').innerHTML = celcius + '&deg;C';
+		document.getElementById('location').innerHTML = `${dat.name}, ${dat.sys.country}`;
+	} catch(e) {
+		alert('No data for such city');
+	}
 }
 
 textInput.addEventListener('input', () => {      
