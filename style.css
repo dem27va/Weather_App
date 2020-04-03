@@ -28,7 +28,7 @@ body {
 
 .top-input {
     display: flex;
-    column-gap: 1vw;
+    column-gap: 1px;
     align-items: stretch;
 }
 
